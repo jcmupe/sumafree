@@ -15,6 +15,21 @@
                         description="Hello {/recipient/name}"
                         valueLiveUpdate="true"
                         width="60%"/>
+                     
+                     <Label text="Sumando 1:"/>   
+                     <Input
+                        id="operando1"
+                        value="{/recipient/operando1}"
+                        valueLiveUpdate="true"
+                        width="10%"/>
+                     <Label text="Sumando 2:"/>   
+                     <Input
+                        id="operando2"
+                        value="{/recipient/operando2}"
+                        valueLiveUpdate="true"
+                        width="10%"/>
+                        
+                     <TextArea id="textAreaResult" />
                   </content>
                </Panel>
 
