@@ -26,7 +26,7 @@ sap.ui.define([
                  //this.getView().setModel("recipient",oModel);
 
                  console.log("antes");
-                 this.getView().setModel(oModel,"recipient");
+                 this.getView().setModel(oModel,"model1");
                  console.log("modelo cargado en la vista");
             },
             onFilter: function (oEvent) {
@@ -40,31 +40,9 @@ sap.ui.define([
                 const op1 = this.getView().byId("operando1");
                 const op2 = this.getView().byId("operando2");
                 console.log("op1: " + op1.getValue());
-                //var serviceUrl = "proxy/http/fiori:8000/sap/opu/odata/SAP/Z_TEST_SUMA_OP_SRV/E_TEST_SUMASSet(Operando_1="+ op1.getValue() + ",Operando_2="+ op2.getValue() + ")";
-                //let url = "/sap/opu/odata/SAP/Z_TEST_SUMA_OP_SRV/E_TEST_SUMASSet(Operando_1="+ op1.getValue() + ",Operando_2="+ op2.getValue() + ")";
 
-
-                console.log("Metadatos del modelo conectando. Obtenido: ");
-                console.log(this.getView().getModel().getServiceMetadata());
-
-                function fnSuccess(oData, oResponse) {
-                    // accessing the data from the model now
-                    var oProduct1 = oModel.getData("/Products(1)");
-                    var oProduct1Name = oModel.getProperty("/Products(1)/ProductName");
-                    }
-                    function fnError(oError) {
-                    console.log("Error", oError);
-                    }
-
-                var oModel = this.getView().getModel();
-                oModel.read("/E_TEST_SUMASSet(3,4)", 
-                {
-                    success: fnSuccess, 
-                    error: fnError
-                });
-
-                const nombreModelo="recipient";
-                const oData = this.getView().getModel("recipient");
+                const nombreModelo="model1";
+                const oData = this.getView().getModel(nombreModelo);
                 let filters = [];
 
                 console.log("Operando1 = #"+ oData.getProperty("/recipient/operando1")+"#");
@@ -77,10 +55,34 @@ sap.ui.define([
 
                 // read msg from i18n model
                 var oBundle = this.getView().getModel("i18n").getResourceBundle();
-                var sRecipient = this.getView().getModel().getProperty("/recipient/name");
+                var sRecipient = this.getView().getModel(nombreModelo).getProperty("/recipient/name");
                 var sMsg = oBundle.getText("helloMsg", [sRecipient]);
                 // show message
                 MessageToast.show(sMsg);
+
+                //Llamada al servicio web
+                console.log("Metadatos del modelo conectando. Obtenido: ");
+                console.log(this.getView().getModel().getServiceMetadata());
+
+                function fnSuccess(oDatos, oResponse) {
+                    console.log("SUCCESS");
+                    console.log("RESULTADO OBTENIDO");
+                    console.log(oDatos.Resultado);
+                    oData.setProperty("/recipient/resultado", oDatos.Resultado);
+
+                    }
+                function fnError(oError) {
+                    console.log("Error", oError);
+                    }
+
+                var oModel = this.getView().getModel();
+                oModel.read("/E_TEST_SUMASSet(Operando_1="+ op1.getValue() + ",Operando_2=" + op2.getValue() + ")", 
+                {
+                    success: fnSuccess, 
+                    error: fnError
+                });
+                //Fin de llamada servicio web
+
              }
         });
     });
