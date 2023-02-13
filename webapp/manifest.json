@@ -24,6 +24,15 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "datavuelos": {
+        "uri": "/sap/opu/odata/sap/Z_DEMO_VUELOS_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadatavuelos.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -73,6 +82,11 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
+      },
+      "vuelos": {
+        "dataSource": "datavuelos",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -99,7 +113,14 @@
           "target": [
             "TargetView1"
           ]
-        }
+        },
+        {
+          "name": "Vuelos",
+          "pattern": "Vuelos",
+          "target": [
+              "TargetVuelos"
+              ]
+      }
       ],
       "targets": {
         "TargetView1": {
@@ -108,8 +129,16 @@
           "clearControlAggregation": false,
           "viewId": "View1",
           "viewName": "View1"
-        }
+        }, 
+          "TargetVuelos": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "Vuelos",
+            "viewName": "Vuelos"
+          }
       }
+      
     },
     "rootView": {
       "viewName": "sumfree.view.App",

@@ -1,0 +1,42 @@
+<mvc:View controllerName="sumfree.controller.Vuelos"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="Información de vuelos">
+        <content>
+               <Panel headerText="Vuelos">
+                  <Label id="labelCountry" text="Compañía de vuelo" class="sapUiSmallMargin"/>
+                  <!--
+                  <Select id="slCountry" selectedKey="{selectionScreen>/CountryKey}"
+                        forceSelection="false" items="{selectionScreen>/Countries}">
+                        <items>
+                        <core:Item key="{selectionScreen>key}" 
+                           text="{selectionScreen>text}"/>
+                        </items>
+                  </Select>
+                  <Button id="btnFilters" text="Filtrar"
+                        icon="sap-icon://filter" press="onFilter" 
+                        class="sapUiSmallMarginEnd"/>
+                  <Button id="btnClearFilters" text="Limpiar filtro"
+                        icon="sap-icon://clear-filter" press="onClearFilter"
+                        class="sapUiSmallMarginEnd"/>
+
+                        -->
+                        </Panel>
+               <Panel>
+               <List id="invoicesList" headerText="Lista de vuelos"
+                  class="sapUiResponsiveMargin"
+                  width="auto"
+                  items="{vuelos>ExVuelosSet}">  
+                  <items>
+                  <ObjectListItem title="{Nom_Compania} - {Cod_Conexion}" 
+                        >
+                  </ObjectListItem>
+               </items>
+               </List>
+               </Panel>
+
+
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z_DEMO_VUELOS_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ExVuelos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Cod_Compania" />
+                    <PropertyRef Name="Cod_Conexion" />
+                    <PropertyRef Name="Fecha_Vuelo" />
+                </Key>
+                <Property Name="Cod_Compania" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Compañía aérea" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Cod_Conexion" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Número de vuelo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Fecha_Vuelo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Fecha de vuelo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Nom_Compania" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Compañía aérea" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Pais_Salida" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="País" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Ciudad_Salida" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Ciudad sal." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Aeropuerto_Salida" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Aerop.salida" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Pais_Llegada" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="País" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Ciudad_Llegada" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Ciudad de llegada" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Aeropuerto_Llegada" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Aerop.destino" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Hora_Salida" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Hora de salida" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Hora_Llegad" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Hora de llegada" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Distancia" Type="Edm.Decimal" Nullable="false" Precision="9" Scale="4" sap:label="Distancia" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Distancia_Unidad" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Distancia en" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure" />
+                <Property Name="Tipo_Vuelo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Charter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Llegada_n_Dias" Type="Edm.Byte" Nullable="false" sap:label="n día(s) desp." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Precio" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="Moneda" sap:label="Prc.vuelo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Mon.loc.cia.aér." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code" />
+                <Property Name="Tipo_Avion" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Tipo avión" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Ocupacion_Max_Econ" Type="Edm.Int32" Nullable="false" sap:label="Ocupac.máx.cl.econ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Plazas_Max_Econ" Type="Edm.Int32" Nullable="false" sap:label="Ocup.cl.económ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Total_Reservas" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unit="Moneda" sap:label="Total act." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Ocupacion_Max_Busin" Type="Edm.Int32" Nullable="false" sap:label="OcupMáxClBusiness" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Plazas_Max_Busin" Type="Edm.Int32" Nullable="false" sap:label="OcupClBusiness" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Ocupacion_Max_PrimClase" Type="Edm.Int32" Nullable="false" sap:label="Ocup.máxima 1ª clase" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            </EntityType>
+            <EntityContainer Name="Z_DEMO_VUELOS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+                <EntitySet Name="ExVuelosSet" EntityType="Z_DEMO_VUELOS_SRV.ExVuelos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            </EntityContainer>
+            <atom:link rel="self" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -13,31 +13,22 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("sumfree.controller.View1", {
-
-            
             onInit: function () {
-
                 var oData = {
                     recipient : {
-                       name : "World por defecto",
-                       operando1: "",
-                       operando2: "",
-                       resultado: ""
+                       name : "Info de vuelos",
+                       comapnia: "",
+                       conexion: ""
                     }
                  };
                  var oModel = new JSONModel(oData);
                  //this.getView().setModel("recipient",oModel);
 
-                 console.log("antes");
-                 this.getView().setModel(oModel,"model1");
+                 this.getView().setModel(oModel,"infovuelos");
                  console.log("modelo cargado en la vista");
             },
             onFilter: function (oEvent) {
-              
-            },
-            onVuelos: function() {
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("Vuelos");
+               
 
             },
             

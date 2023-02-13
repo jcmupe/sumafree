@@ -34,6 +34,10 @@
                      <TextArea id="textAreaResult" data="{model1>/recipient/resultado}"/>
                     
                     <Input id="inputresultado" value="{model1>/recipient/resultado}" />
+
+                    <Button
+                        text="Ir a vuelos"
+                        press=".onVuelos"/>
                   </content>
                </Panel>
 
