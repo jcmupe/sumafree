@@ -5,15 +5,18 @@
     <Page id="page" title="Información de vuelos">
         <content>
                <Panel headerText="Vuelos">
-                  <Label id="labelCountry" text="Compañía de vuelo" class="sapUiSmallMargin"/>
-                  <!--
-                  <Select id="slCountry" selectedKey="{selectionScreen>/CountryKey}"
-                        forceSelection="false" items="{selectionScreen>/Countries}">
+                  <Label id="labelcompania" text="Compañía de vuelo" class="sapUiSmallMargin"/>
+                  <Select id="idcompania" selectedKey="{infovuelos>/recipient/compania}"
+                        forceSelection="false" items="{companias>/E_OBTENER_COMPANIASSet}">
                         <items>
-                        <core:Item key="{selectionScreen>key}" 
-                           text="{selectionScreen>text}"/>
+                        <core:Item key="{companias>Cod_Compania}" 
+                           text="{companias>Nom_Compania}"/>
                         </items>
                   </Select>
+                  <Label id="labelconexion" labelFor="idconexion" 
+                        text="Conexión" class="sapUiSmallMargin"/>
+                  <Input id="idconexion" width="200px" value="{infovuelos>/recipient/conexion}" class="sapUiSmallMarginEnd"/>
+
                   <Button id="btnFilters" text="Filtrar"
                         icon="sap-icon://filter" press="onFilter" 
                         class="sapUiSmallMarginEnd"/>
@@ -21,19 +24,96 @@
                         icon="sap-icon://clear-filter" press="onClearFilter"
                         class="sapUiSmallMarginEnd"/>
 
-                        -->
+         
                         </Panel>
                <Panel>
-               <List id="invoicesList" headerText="Lista de vuelos"
+               <List id="invoicesList1" headerText="Lista de vuelos"
                   class="sapUiResponsiveMargin"
                   width="auto"
-                  items="{vuelos>ExVuelosSet}">  
+                  items="{vuelos>/ExVuelosSet}">  
                   <items>
-                  <ObjectListItem title="{Nom_Compania} - {Cod_Conexion}" 
-                        >
-                  </ObjectListItem>
+                  <StandardListItem id="_IDGenStandardListItem1" headerText="Fecha vuelo" title="{vuelos>Cod_Compania}-{vuelos>Nom_Compania}"/>
+                  
+                 
                </items>
                </List>
+
+                  <Table id="invoicesList"
+                  headerText="Vuelos"
+                  items="{
+                        path:'vuelos>/ExVuelosSet',
+                        sorter: {
+                        path: 'Fecha_Vuelo',
+                        descending: false
+                        }
+                  }" >
+                  <columns>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Fecha vuelo" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Pais salida" />
+                              </header>
+                        </Column>
+                        
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Ciudad_Salida" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Aeropuerto_Salida" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Hora_Salida" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Hora_Llegad" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Distancia" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Precio" />
+                              </header>
+                        </Column>
+                        <Column mergeDuplicates="false">
+                              <header>
+                              <Text text="Moneda" />
+                              </header>
+                        </Column>
+
+
+                        
+                  </columns>
+                  <ColumnListItem>
+                        <Text text="{vuelos>Fecha_Vuelo}" />
+                        <Text text="{vuelos>Pais_Salida}" />
+                        <Text text="{vuelos>Ciudad_Salida}" />
+                        <Text text="{vuelos>Aeropuerto_Salida}" />
+                        <Text text="{vuelos>Hora_Salida}" />
+                        <Text text="{vuelos>Hora_Llegad}" />
+                        <Text text="{vuelos>Distancia}" />
+                        <Text text="{vuelos>Precio}" />
+                        <Text text="{vuelos>Moneda}" />
+
+                  </ColumnListItem>
+                  </Table>
+
+
+
                </Panel>
 
 

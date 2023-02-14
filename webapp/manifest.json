@@ -33,6 +33,15 @@
           "localUri": "localService/metadatavuelos.xml",
           "odataVersion": "2.0"
         }
+      },
+      "datacompanias": {
+        "uri": "/sap/opu/odata/sap/Z_DEMO_COMPANIA_VUELOS_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadatavueloscompania.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -85,6 +94,11 @@
       },
       "vuelos": {
         "dataSource": "datavuelos",
+        "preload": true,
+        "settings": {}
+      },
+      "companias": {
+        "dataSource": "datacompanias",
         "preload": true,
         "settings": {}
       }

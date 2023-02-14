@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData"><edmx:DataServices m:DataServiceVersion="2.0"><Schema Namespace="Z_DEMO_COMPANIA_VUELOS_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"><EntityType Name="E_OBTENER_COMPANIAS" sap:content-version="1"><Key><PropertyRef Name="Cod_Compania"/></Key><Property Name="Cod_Compania" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Nom_Compania" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType><EntityContainer Name="Z_DEMO_COMPANIA_VUELOS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json"><EntitySet Name="E_OBTENER_COMPANIASSet" EntityType="Z_DEMO_COMPANIA_VUELOS_SRV.E_OBTENER_COMPANIAS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_COMPANIA_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_COMPANIA_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/></Schema></edmx:DataServices></edmx:Edmx>
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z_DEMO_COMPANIA_VUELOS_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="E_OBTENER_COMPANIAS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Cod_Compania" />
+                </Key>
+                <Property Name="Cod_Compania" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Nom_Compania" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            </EntityType>
+            <EntityContainer Name="Z_DEMO_COMPANIA_VUELOS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+                <EntitySet Name="E_OBTENER_COMPANIASSet" EntityType="Z_DEMO_COMPANIA_VUELOS_SRV.E_OBTENER_COMPANIAS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            </EntityContainer>
+            <atom:link rel="self" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_COMPANIA_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="https://sapserverdes.oesia.com/sap/opu/odata/SAP/Z_DEMO_COMPANIA_VUELOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -12,13 +12,14 @@ sap.ui.define([
     function (Controller, MessageToast,JSONModel, Filter, FilterOperator, ODataModel) {
         "use strict";
 
-        return Controller.extend("sumfree.controller.View1", {
+        return Controller.extend("sumfree.controller.Vuelos", {
             onInit: function () {
                 var oData = {
                     recipient : {
                        name : "Info de vuelos",
-                       comapnia: "",
-                       conexion: ""
+                       compania: "",
+                       conexion: "",
+                       listaresultado:""
                     }
                  };
                  var oModel = new JSONModel(oData);
@@ -28,8 +29,43 @@ sap.ui.define([
                  console.log("modelo cargado en la vista");
             },
             onFilter: function (oEvent) {
-               
+               const compania = this.getView().getModel("infovuelos").getProperty("/recipient/compania");
+               const conexion = this.getView().getModel("infovuelos").getProperty("/recipient/conexion");
+               const oData = this.getView().getModel("infovuelos");
 
+                // function fnSuccess(oDatos, oResponse) {
+                //     console.log("SUCCESS");
+                //     console.log("RESULTADO OBTENIDO");
+                //     //console.log(oDatos.Resultado);
+                //     oData.setProperty("/recipient/listaresultado", oDatos.results);
+
+                //     }
+                // function fnError(oError) {
+                //     console.log("Error", oError);
+                //     }
+
+                // var oModel = this.getView().getModel("vuelos");//.getData();
+                // oModel.read("/ExVuelosSet?$filter=Cod_Compania%20eq%20%27AA%27%20", 
+                // {
+                //     success: fnSuccess, 
+                //     error: fnError
+                // });
+
+
+                let filters = [];
+                if (compania !== "") {
+                filters.push(new Filter("Cod_Compania", 
+                    FilterOperator.EQ, compania));
+                    console.log("nombre a buscar: " + compania);
+                }
+                
+                if (conexion !== "") {
+                    filters.push(new Filter("Cod_Conexion", 
+                    FilterOperator.EQ, conexion));
+                }
+                const oList = this.getView().byId("invoicesList");
+                const oBinding = oList.getBinding("items");
+                oBinding.filter(filters);
             },
             
             onShowHello : function () {
