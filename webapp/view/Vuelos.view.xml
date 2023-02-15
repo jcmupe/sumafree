@@ -99,7 +99,16 @@
                         
                   </columns>
                   <ColumnListItem>
-                        <Text text="{vuelos>Fecha_Vuelo}" />
+                        <Text text="{
+                              path: 'vuelos>Fecha_Vuelo',
+                              type: 'sap.ui.model.type.Date',
+                              formatOptions: {
+                                    source: {
+                                    pattern: 'yyyyMMdd'
+                                    },
+                                    pattern: 'dd/MM/yyyy'
+                              }
+                              }" />
                         <Text text="{vuelos>Pais_Salida}" />
                         <Text text="{vuelos>Ciudad_Salida}" />
                         <Text text="{vuelos>Aeropuerto_Salida}" />
